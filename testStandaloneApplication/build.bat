@@ -15,5 +15,5 @@ call "%VCVARS_LOCATION%/vcvarsall.bat" x64
 
 cd %ROOT%/%CURRENT_DIR%
 start /w hcustom -s main.cpp
-call main.exe
+start /w main.exe
 call gplay sphere.bgeo
