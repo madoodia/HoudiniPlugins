@@ -1,3 +1,4 @@
+This sample is from `HDK Samples`
 For running the code
 - this plugin can be built with `hcustom` or `CMakeLists.txt`
 - from inside VSCode:
