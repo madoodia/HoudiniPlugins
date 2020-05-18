@@ -18,7 +18,8 @@
     "sstream": "cpp",
     "iosfwd": "cpp",
     "qtuitools": "cpp",
-    "SOP_Flatten.C": "cpp"
+    "SOP_Flatten.C": "cpp",
+    "SOP_Star.C": "cpp"
   },
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
