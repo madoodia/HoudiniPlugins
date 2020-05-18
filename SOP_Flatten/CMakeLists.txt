@@ -28,4 +28,4 @@ add_library( ${LIBRARY_NAME} SHARED ${SOURCE}
 target_link_libraries( ${LIBRARY_NAME} Houdini )
 
 # Configure several common target properties, such as its output directory.
-# houdini_configure_target( ${LIBRARY_NAME} ) // for installing .so (.dll) file in $HOME/HoudiniX.Y/dso
+# houdini_configure_target( ${LIBRARY_NAME} ) # for installing .so (.dll) file in $HOME/HoudiniX.Y/dso
