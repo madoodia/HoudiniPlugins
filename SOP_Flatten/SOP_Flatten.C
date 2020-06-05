@@ -253,7 +253,7 @@ SOP_Flatten::cookMySop(OP_Context &context)
         //       Long story short: *Local variables are terrible.*
         myCurPtOff[0] = ptoff;
         float dist = DIST(now);
-        UT_Vector3 normal;
+        UT_Vector3F normal;
         if (!DIRPOP())
         {
           switch (ORIENT())
@@ -279,7 +279,7 @@ SOP_Flatten::cookMySop(OP_Context &context)
         // off the normal component.
         for (exint i = 0; i < positionattribs.size(); ++i)
         {
-          UT_Vector3 p = positionattribs(i).get(ptoff);
+          UT_Vector3F p = positionattribs(i).get(ptoff);
           p -= normal * (dot(normal, p) - dist);
           positionattribs(i).set(ptoff, p);
         }
@@ -287,7 +287,7 @@ SOP_Flatten::cookMySop(OP_Context &context)
         // Normals will now all either be normal or -normal.
         for (exint i = 0; i < normalattribs.size(); ++i)
         {
-          UT_Vector3 n = normalattribs(i).get(ptoff);
+          UT_Vector3F n = normalattribs(i).get(ptoff);
           if (dot(normal, n) < 0)
             n = -normal;
           else
@@ -299,7 +299,7 @@ SOP_Flatten::cookMySop(OP_Context &context)
         // subtracting off the normal component.
         for (exint i = 0; i < vectorattribs.size(); ++i)
         {
-          UT_Vector3 v = vectorattribs(i).get(ptoff);
+          UT_Vector3F v = vectorattribs(i).get(ptoff);
           v -= normal * dot(normal, v);
           vectorattribs(i).set(ptoff, v);
         }
@@ -365,10 +365,10 @@ SOP_Flatten::cookMyGuide1(OP_Context &context)
   if (error() >= UT_ERROR_ABORT)
     return error();
 
-  UT_Vector3 normal(nx, ny, nz);
+  UT_Vector3F normal(nx, ny, nz);
   normal.normalize();
 
-  UT_BoundingBox bbox;
+  UT_BoundingBoxF bbox;
   inputGeo(0, context)->getBBox(&bbox);
 
   float sx = bbox.sizeX();
@@ -382,10 +382,10 @@ SOP_Flatten::cookMyGuide1(OP_Context &context)
 
   myGuide1->meshGrid(divs, divs, size, size);
 
-  UT_Vector3 zaxis(0, 0, 1);
-  UT_Matrix3 mat3;
+  UT_Vector3F zaxis(0, 0, 1);
+  UT_Matrix3F mat3;
   mat3.dihedral(zaxis, normal);
-  UT_Matrix4 xform;
+  UT_Matrix4F xform;
   xform = mat3;
   xform.translate(cx, cy, cz);
 

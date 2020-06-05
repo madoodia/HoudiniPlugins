@@ -1,36 +1,33 @@
-cmake_minimum_required( VERSION 3.6 )
+# --------------------- #
+# (C) 2020 madoodia.com #
+# --------------------- #
 
-project( HDK_Project )
 
-# CMAKE_PREFIX_PATH must contain the path to the toolkit/cmake subdirectory of
-# the Houdini installation. See the "Compiling with CMake" section of the HDK
-# documentation for more details, which describes several options for
-# specifying this path.
+cmake_minimum_required(VERSION 3.3)
+
+project($ENV{TARGET_NAME} CXX)
+
 list( APPEND CMAKE_PREFIX_PATH "$ENV{HFS}/toolkit/cmake" )
 
-# Locate Houdini's libraries and header files.
-# Registers an imported library target named 'Houdini'.
 find_package( Houdini REQUIRED )
 
-set( library_name SOP_Star )
+SET(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Code generation for the embedded DS file in SOP_Star.C.
-houdini_generate_proto_headers( FILES SOP_Star.C )
-
-# Add a library and its source files.
-add_library( ${library_name} SHARED
-    SOP_Star.C
-    SOP_Star.h
+# set SOURCE_FILES
+set(SOURCE
+    SOP_Star.c
 )
 
-# Link against the Houdini libraries, and add required include directories and
-# compile definitions.
-target_link_libraries( ${library_name} Houdini )
-
-# Include ${CMAKE_CURRENT_BINARY_DIR} for the generated header.
-target_include_directories( ${library_name} PRIVATE
+# Add a library with two source files.
+set( LIBRARY_NAME SOP_Star )
+houdini_generate_proto_headers( FILES SOP_Star.C )
+add_library( ${LIBRARY_NAME} SHARED ${SOURCE}    
+)
+# Link against the Houdini libraries, and add required include directories and compile definitions.
+target_link_libraries( ${LIBRARY_NAME} Houdini )
+target_include_directories( ${LIBRARY_NAME} PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}
 )
-
-# Sets several common target properties, such as the library's output directory.
-houdini_configure_target( ${library_name} )
+# Configure several common target properties, such as its output directory.
+# houdini_configure_target( ${LIBRARY_NAME} ) # for installing .so (.dll) file in $HOME/HoudiniX.Y/dso

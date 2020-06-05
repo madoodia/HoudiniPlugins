@@ -17,7 +17,6 @@ SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set SOURCE_FILES
 set(SOURCE
     SOP_Flatten.c
-    SOP_Flatten.h
 )
 
 # Add a library with two source files.

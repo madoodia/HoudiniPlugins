@@ -3,7 +3,7 @@ REM # (C) 2020 madoodia.com #
 REM # --------------------- #
 
 REM  If you have extra path that need to be compiled add here
-set NEED_BUILD=1
+set NEED_BUILD=0
 set OUTPUT_FILE_EXTENSION=dll
 
 REM NOTE: in windows add C:\Program Files\Side Effects Software\Houdini 18.0.348 as HFS env variable and
