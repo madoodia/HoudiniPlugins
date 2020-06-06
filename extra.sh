@@ -3,5 +3,5 @@
 # --------------------- #
 
 # If you have extra path that need to be compiled add here
-export NEED_BUILD=1
-export OUTPUT_FILE_EXTENSION=dll
+export NEED_BUILD=0
+export OUTPUT_FILE_EXTENSION=so

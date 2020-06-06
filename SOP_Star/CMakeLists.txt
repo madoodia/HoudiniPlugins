@@ -16,7 +16,7 @@ SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # set SOURCE_FILES
 set(SOURCE
-    SOP_Star.c
+    SOP_Star.C
 )
 
 # Add a library with two source files.

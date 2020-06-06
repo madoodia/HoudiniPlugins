@@ -14,15 +14,15 @@ find_package( Houdini REQUIRED )
 SET(CMAKE_CXX_STANDARD 11)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# set SOURCE_FILES
-set(SOURCE
-    SOP_Flatten.c
+# set SOURCE
+set(SOURCES
+    SOP_Flatten.C
 )
 
 # Add a library with two source files.
 set( LIBRARY_NAME SOP_Flatten )
-add_library( ${LIBRARY_NAME} SHARED ${SOURCE}    
-)
+add_library( ${LIBRARY_NAME} SHARED ${SOURCES})
+
 # Link against the Houdini libraries, and add required include directories and compile definitions.
 target_link_libraries( ${LIBRARY_NAME} Houdini )
 

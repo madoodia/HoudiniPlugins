@@ -30,6 +30,10 @@ export OPENCL_LOCATION=$SDKS_LOCATION/OpenCL
 # MAYA DEVKIT_LOCATION
 export DEVKIT_LOCATION=$SDKS_LOCATION/Maya_2019
 
+#  MAYA DEVKIT_LOCATION
+export HFS=/mnt/hdd/madoodia/softwares/hfs18.0.416
+export PATH=$PATH:$HFS/bin;
+
 # Adding Extra custom Definitions of the project
 . $ROOT/extra.sh
 
