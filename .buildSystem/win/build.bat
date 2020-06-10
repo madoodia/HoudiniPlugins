@@ -15,18 +15,19 @@ REM ECHO fileextension=%%~xi
 REM )
 
 REM # -----= Getting Inputs =---- #
-call "%VCVARS_LOCATION%/vcvarsall.bat" x64
+set TARGET_VS_VERSION=14.16.27023
+call "%VCVARS_LOCATION%/vcvarsall.bat" x64 -vcvars_ver=%TARGET_VS_VERSION%
 
 set ROOT=%1
 set FOLDER=%2
 set FILE_NAME=%3
 
-for %%i IN ("%ROOT%") do (
+for %%i IN ("%FOLDER%") do (
 set FILE_PATH=%%~pi
 set BASE_NAME=%%~ni
 )
 
-set TARGET_NAME=%FOLDER%
+set TARGET_NAME=%BASE_NAME%
 
 REM # ------= Include Envs =----- #
 set LINUX_DIR=%~dp0
@@ -53,7 +54,7 @@ REM # --------------------------- #
 REM # ----= Folder Project =----- #
 REM # -----= File Project =------ #
 REM # --------- Release --------- #
-if not "%FOLDER%" equ "." ( copy %TARGET_NAME%.%OUTPUT_FILE_EXTENSION% "%ROOT%/%FOLDER%")
+if not "%FOLDER%" equ "." ( copy %TARGET_NAME%.%OUTPUT_FILE_EXTENSION% "%ROOT%\load\dso")
 REM # --------------------------- #
 
 REM # ---= Running EXE File =---- #

@@ -20,11 +20,11 @@ set(SOURCES
 )
 
 # Add a library with two source files.
-set( LIBRARY_NAME SOP_Flatten )
-add_library( ${LIBRARY_NAME} SHARED ${SOURCES})
+# set( LIBRARY_NAME SOP_Flatten )
+add_library( $ENV{TARGET_NAME} SHARED ${SOURCES})
 
 # Link against the Houdini libraries, and add required include directories and compile definitions.
-target_link_libraries( ${LIBRARY_NAME} Houdini )
+target_link_libraries( $ENV{TARGET_NAME} Houdini )
 
 # Configure several common target properties, such as its output directory.
-# houdini_configure_target( ${LIBRARY_NAME} ) # for installing .so (.dll) file in $HOME/HoudiniX.Y/dso
+# houdini_configure_target( $ENV{TARGET_NAME} ) # for installing .so (.dll) file in $HOME/HoudiniX.Y/dso
