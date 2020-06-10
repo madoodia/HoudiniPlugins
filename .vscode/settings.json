@@ -19,7 +19,9 @@
     "iosfwd": "cpp",
     "qtuitools": "cpp",
     "SOP_Flatten.C": "cpp",
-    "SOP_Star.C": "cpp"
+    "SOP_Star.C": "cpp",
+    "SOP_OrientAlongCurve.C": "cpp",
+    "SOP_CopyPacked.C": "cpp"
   },
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
