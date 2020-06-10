@@ -1,0 +1,72 @@
+= HDK Star =
+
+#type: node
+#context: sop
+#internal: star
+#icon: /nodes/sop/SOP_hdk_star.png
+#version: 2.0
+#tags: model, grid, tube, curveup, splines, curves, core
+#bestbet: star
+
+
+"""Creates a surface around curves using cross sections."""
+
+== Overview ==
+
+This node creates a surface with grid, tube, or torus topology around backbone curves from the first input, based on cross sections, either provided in the second input geometry or using the __Round Tube__, __Square Tube__, or __Ribbon__ options.  Alternatively, if no curve (first) input is provided, the cross sections in the second input will be surfaced.
+
+The orientations applied to __Rows__ the cross sections are equivalent to those in the [Orientation Along Curve node|Node:sop/orientalongcurve].
+
+[Image:/images/nodes/sop/sweep2/surface_type.jpg]
+
+@TEST
+@###TEST
+
+*TEST*
+
+/TEST/
+
+`for (int i = 0; i <)`
+
+for (int i = 0; i <)
+
+= Title1 =
+== Title2 ==
+=== Title3 ===
+==== Title4 ====
+===== Title5 =====
+
+@parameters
+
+Divisions:
+    #channels: /divs
+    Number of points on the star
+
+Radius:
+    #channels: /rad
+    The radius of the star
+
+NegRadius:
+    #channels: /nradius
+    Allows the radius to be negative.  This may result in bowtie
+    polygons.
+
+Center:
+    #channels: /tx /ty /tz
+    The center of the star
+
+Orientation:
+    #channels: /orient
+    The orientation of the star
+
+
+@locals
+PT:
+    current point number
+NPT:
+    number of points in the star
+
+@related
+- [Node:sop/circle]
+- [Node:sop/copytopoints]
+- [Node:sop/add]
