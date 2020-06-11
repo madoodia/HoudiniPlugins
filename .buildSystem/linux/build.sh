@@ -19,6 +19,10 @@ LINUX_DIR=$(dirname "$0")
 export CC=/usr/local/bin/gcc
 export CXX=/usr/local/bin/g++
 
+# ------- Houdini ----------- #
+export PATH=/mnt/hdd/madoodia/softwares/hfs18.0.416/bin:$PATH
+export HFS=/mnt/hdd/madoodia/softwares/hfs18.0.416
+
 # --------- Common ---------- #
 cd $ROOT
 
