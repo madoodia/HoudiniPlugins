@@ -6,14 +6,18 @@
 ROOT=$1
 FOLDER=$2
 export FILE_NAME=$3
-export BASE_NAME=$(basename $ROOT)
-export TARGET_NAME=$FOLDER
+export BASE_NAME=$(basename $FOLDER)
+export TARGET_NAME=$BASE_NAME
 # --------------------------- #
 
 # ------= Include Envs =----- #
 LINUX_DIR=$(dirname "$0")
 . $LINUX_DIR/envVars.sh
 # --------------------------- #
+
+# ------- Using G++6.5 ------ #
+export CC=/usr/local/bin/gcc
+export CXX=/usr/local/bin/g++
 
 # --------- Common ---------- #
 cd $ROOT
@@ -39,7 +43,7 @@ fi
 # -----= File Project =------ #
 # --------- Release --------- #
 if [ "$FOLDER" != "." ]; then
-    cp $TARGET_NAME.$OUTPUT_FILE_EXTENSION $ROOT/$FOLDER
+    cp $TARGET_NAME.$OUTPUT_FILE_EXTENSION $ROOT/load/dso
 fi
 # --------------------------- #
 
