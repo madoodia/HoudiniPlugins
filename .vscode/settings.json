@@ -24,7 +24,11 @@
     "SOP_CopyPacked.C": "cpp",
     "OBJ_Shake.C": "cpp",
     "OBJ_WorldAlign.C": "cpp",
-    "OBJ_Lamp.C": "cpp"
+    "OBJ_Lamp.C": "cpp",
+    "SOP_HOMWave.C": "cpp",
+    "SOP_PointWave.C": "cpp",
+    "SOP_TimeCompare.C": "cpp",
+    "SOP_DetailAttrib.C": "cpp"
   },
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
