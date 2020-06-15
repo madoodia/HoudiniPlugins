@@ -21,7 +21,10 @@
     "SOP_Flatten.C": "cpp",
     "SOP_Star.C": "cpp",
     "SOP_OrientAlongCurve.C": "cpp",
-    "SOP_CopyPacked.C": "cpp"
+    "SOP_CopyPacked.C": "cpp",
+    "OBJ_Shake.C": "cpp",
+    "OBJ_WorldAlign.C": "cpp",
+    "OBJ_Lamp.C": "cpp"
   },
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",

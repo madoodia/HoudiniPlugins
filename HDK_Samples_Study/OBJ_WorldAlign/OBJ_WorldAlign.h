@@ -23,50 +23,44 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *----------------------------------------------------------------------------
- * This SOP builds a star.
+ *
+ * This class implements an object that aligns the inherited orientation to the
+ * world axes while preserving the location in space. It also illustrates how to
+ * hide all the parameters inherited from the base class.
+ *
  */
 
-#ifndef __SOP_Star_h__
-#define __SOP_Star_h__
+#ifndef __OBJ_WorldAlign__
+#define __OBJ_WorldAlign__
 
-#include <SOP/SOP_Node.h>
-#include <UT/UT_StringHolder.h>
+#include <OBJ/OBJ_Geometry.h>
 
 namespace HDK_Sample {
-/// This is the SOP class definition.  It doesn't need to be in a separate
-/// file like this.  This is just an example of a header file, in case
-/// another file needs to reference something in here.
-/// You shouldn't have to change anything in here except the name of the class.
-class SOP_Star : public SOP_Node
+class OBJ_WorldAlign : public OBJ_Geometry
 {
 public:
-    static PRM_Template *buildTemplates();
-    static OP_Node *myConstructor(OP_Network *net, const char *name, OP_Operator *op)
-    {
-        return new SOP_Star(net, name, op);
-    }
+    // Standard constructor and destructor.
+				 OBJ_WorldAlign(OP_Network *net,
+					   const char *name,
+					   OP_Operator *op);
+    virtual			~OBJ_WorldAlign();
 
-    static const UT_StringHolder theSOPTypeName;
-    
-    virtual const SOP_NodeVerb *cookVerb() const override;
+    // Instantiates a new node of the type corresponding to this operator.
+    static OP_Node              *myConstructor(OP_Network *net,
+					       const char *name,
+					       OP_Operator *entry);
+
+    // Constructs a list of the parameters for this operator.
+    static OP_TemplatePair	*buildTemplatePair(OP_TemplatePair *prevstuff);
+
 
 protected:
-    SOP_Star(OP_Network *net, const char *name, OP_Operator *op)
-        : SOP_Node(net, name, op)
-    {
-        // All verb SOPs must manage data IDs, to track what's changed
-        // from cook to cook.
-        mySopFlags.setManagesDataIDs(true);
-    }
-    
-    virtual ~SOP_Star() {}
+    // Performs the calculation of the local and the world transformation.
+    virtual OP_ERROR		 cookMyObj(OP_Context &context);
 
-    /// Since this SOP implements a verb, cookMySop just delegates to the verb.
-    virtual OP_ERROR cookMySop(OP_Context &context) override
-    {
-        return cookMyselfAsVerb(context);
-    }
+private:
 };
-} // End HDK_Sample namespace
+
+}	// End HDK_Sample namespace
 
 #endif
