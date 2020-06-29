@@ -12,14 +12,9 @@ list( APPEND CMAKE_PREFIX_PATH "$ENV{HFS}/toolkit/cmake" )
 # Registers an imported library target named 'Houdini'.
 find_package( Houdini REQUIRED )
 
-# Code generation for the embedded DS file in MSopFirst.cpp.
-houdini_generate_proto_headers( FILES main.cpp )
-
 # Add a library and its source files.
 add_library( $ENV{TARGET_NAME} SHARED
-    main.cpp
-    MSopFirst.cpp
-    MSopFirst.h
+    MObjFirst.cpp
 )
 
 # Link against the Houdini libraries, and add required include directories and
