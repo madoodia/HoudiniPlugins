@@ -35,32 +35,32 @@
 
 #include <OBJ/OBJ_Geometry.h>
 
-namespace HDK_Sample {
+namespace HDK_Sample
+{
 class OBJ_WorldAlign : public OBJ_Geometry
 {
 public:
-    // Standard constructor and destructor.
-				 OBJ_WorldAlign(OP_Network *net,
-					   const char *name,
-					   OP_Operator *op);
-    virtual			~OBJ_WorldAlign();
+  // Standard constructor and destructor.
+  OBJ_WorldAlign(OP_Network *net,
+                 const char *name,
+                 OP_Operator *op);
+  virtual ~OBJ_WorldAlign();
 
-    // Instantiates a new node of the type corresponding to this operator.
-    static OP_Node              *myConstructor(OP_Network *net,
-					       const char *name,
-					       OP_Operator *entry);
+  // Instantiates a new node of the type corresponding to this operator.
+  static OP_Node *myConstructor(OP_Network *net,
+                                const char *name,
+                                OP_Operator *entry);
 
-    // Constructs a list of the parameters for this operator.
-    static OP_TemplatePair	*buildTemplatePair(OP_TemplatePair *prevstuff);
-
+  // Constructs a list of the parameters for this operator.
+  static OP_TemplatePair *buildTemplatePair(OP_TemplatePair *prevstuff);
 
 protected:
-    // Performs the calculation of the local and the world transformation.
-    virtual OP_ERROR		 cookMyObj(OP_Context &context);
+  // Performs the calculation of the local and the world transformation.
+  virtual OP_ERROR cookMyObj(OP_Context &context);
 
 private:
 };
 
-}	// End HDK_Sample namespace
+} // namespace HDK_Sample
 
 #endif

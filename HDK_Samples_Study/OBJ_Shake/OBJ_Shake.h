@@ -34,34 +34,34 @@
 
 #include <OBJ/OBJ_Geometry.h>
 
-namespace HDK_Sample {
+namespace HDK_Sample
+{
 
 class OBJ_Shake : public OBJ_Geometry
 {
 public:
-				 OBJ_Shake(OP_Network *net,
-					   const char *name,
-					   OP_Operator *op);
-    virtual			~OBJ_Shake();
+  OBJ_Shake(OP_Network *net,
+            const char *name,
+            OP_Operator *op);
+  virtual ~OBJ_Shake();
 
-    static OP_Node              *myConstructor(OP_Network *net,
-					       const char *name,
-					       OP_Operator *entry);
+  static OP_Node *myConstructor(OP_Network *net,
+                                const char *name,
+                                OP_Operator *entry);
 
-    static OP_TemplatePair	*buildTemplatePair(OP_TemplatePair *prevstuff);
+  static OP_TemplatePair *buildTemplatePair(OP_TemplatePair *prevstuff);
 
-    fpreal  JX(fpreal t)	{ return evalFloat("jitter", &shakeIndirect[0], 0, t); }
-    fpreal  JY(fpreal t)	{ return evalFloat("jitter", &shakeIndirect[0], 1, t); }
-    fpreal  JZ(fpreal t)	{ return evalFloat("jitter", &shakeIndirect[0], 2, t); }
+  fpreal JX(fpreal t) { return evalFloat("jitter", &shakeIndirect[0], 0, t); }
+  fpreal JY(fpreal t) { return evalFloat("jitter", &shakeIndirect[0], 1, t); }
+  fpreal JZ(fpreal t) { return evalFloat("jitter", &shakeIndirect[0], 2, t); }
 
 protected:
-    virtual int			 applyInputIndependentTransform(
-				    OP_Context &context, UT_DMatrix4 &mat);
+  virtual int applyInputIndependentTransform(OP_Context &context, UT_DMatrix4 &mat);
 
 private:
-    static int			*shakeIndirect;
+  static int *shakeIndirect;
 };
 
-}	// End HDK_Sample namespace
+} // namespace HDK_Sample
 
 #endif

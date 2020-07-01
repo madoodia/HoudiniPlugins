@@ -7,6 +7,11 @@
 #include <OP/OP_OperatorTable.h>
 #include <UT/UT_DSOVersion.h> // Avoiding Version information error
 
+namespace MHSamples
+{
+// Madoodia Houdini Samples
+}
+
 void newObjectOperator(OP_OperatorTable *table)
 {
   table->addOperator(
