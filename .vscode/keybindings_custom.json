@@ -25,9 +25,9 @@
         "args": "build"
     },
     {
-        "key": "ctrl+alt+h",
+        "key": "ctrl+alt+t",
         "command": "workbench.action.tasks.runTask",
-        "args": "buildHere"
+        "args": "runTest"
     },
     {
         "key": "alt+shift+b",
