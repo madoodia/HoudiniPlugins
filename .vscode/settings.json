@@ -28,7 +28,8 @@
     "SOP_HOMWave.C": "cpp",
     "SOP_PointWave.C": "cpp",
     "SOP_TimeCompare.C": "cpp",
-    "SOP_DetailAttrib.C": "cpp"
+    "SOP_DetailAttrib.C": "cpp",
+    "SOP_CPPWave.C": "cpp"
   },
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
