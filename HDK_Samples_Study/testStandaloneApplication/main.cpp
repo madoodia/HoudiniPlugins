@@ -32,7 +32,7 @@ namespace HDK_Sample
 {
 
 static float
-densityFunction(const UT_Vector3F &P, void *data)
+densityFunction(const UT_Vector3 &P, void *data)
 {
   // Return the signed distance to the unit sphere
   return 1 - P.length();
