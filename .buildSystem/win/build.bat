@@ -15,7 +15,11 @@ REM ECHO fileextension=%%~xi
 REM )
 
 REM # -----= Getting Inputs =---- #
-set TARGET_VS_VERSION=14.16.27023
+@REM VS 2017
+@REM set TARGET_VS_VERSION=14.16.27023
+@REM VS 2019
+set TARGET_VS_VERSION=14.29.30133
+
 call "%VCVARS_LOCATION%/vcvarsall.bat" x64 -vcvars_ver=%TARGET_VS_VERSION%
 
 set ROOT=%1
